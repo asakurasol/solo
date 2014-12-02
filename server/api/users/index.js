@@ -16,11 +16,11 @@ module.exports = function(passport){
   /* Handle Login POST */
 
   console.log('passport',passport);
-  router.post('/login', passport.authenticate('login', {
-    successRedirect: '/',
-    failureRedirect: '/',
-    failureFlash : true 
-  }));
+  router.post('/login', passport.authenticate('login'),function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.json(req.user.username);
+  });
  
   // /* GET Registration Page */
   // router.get('/signup', function(req, res){
@@ -31,7 +31,7 @@ module.exports = function(passport){
   router.post('/signup', passport.authenticate('signup', {
     successRedirect: '/',
     failureRedirect: '/',
-    failureFlash : true 
+    failureFlash : false
   }));
  
   return router;

@@ -12,6 +12,11 @@ module.exports = function(app,passport) {
   app.use('/api/messages', require('./api/messages'));
 
   app.use('/api/users', require('./api/users')(passport));
+
+  app.route('/api/users/loggedin')
+    .get(function(req, res) {
+      res.sendfile(app.get('appPath') + '/index.html');
+    });
   
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

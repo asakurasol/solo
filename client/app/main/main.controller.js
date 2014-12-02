@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('201410SoloApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http, Username) {
+    angular.extend($scope, Username);
     $scope.messages = [];
 
     $scope.fetchMessage = function() {  
@@ -27,4 +28,21 @@ angular.module('201410SoloApp')
     };
 
     $scope.fetchMessage();
-  });
+  })
+  .factory('Username', function() {
+    var username = '';
+
+    var updateUserName = function(name) {
+      username = name;
+    };
+
+    var clearUserName = function() {
+      username = 'test';
+    };
+
+    return {
+      username : username,
+      updateUserName : updateUserName,
+      clearUserName : clearUserName
+    }
+  })
