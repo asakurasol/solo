@@ -14,8 +14,9 @@ angular.module('201410SoloApp')
       console.log($scope.user);
       $http.post('/api/users/login', $scope.user).success(function(user) {
           $scope.username = user;
+          Username.updateUserName(user);
+          console.log(Username);
           $state.go('main');
-          console.log(user);
       });
       $scope.user = {};
     };

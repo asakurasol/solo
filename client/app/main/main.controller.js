@@ -3,12 +3,12 @@
 angular.module('201410SoloApp')
   .controller('MainCtrl', function ($scope, $http, Username) {
     angular.extend($scope, Username);
+    console.log(Username);
     $scope.messages = [];
-
+    console.log('angular usename is',$scope.username);
     $scope.fetchMessage = function() {  
       $http.get('/api/messages').success(function(messages) {
         $scope.messages = messages;
-        console.log(messages);
       });
     };
 
@@ -28,21 +28,4 @@ angular.module('201410SoloApp')
     };
 
     $scope.fetchMessage();
-  })
-  .factory('Username', function() {
-    var username = '';
-
-    var updateUserName = function(name) {
-      username = name;
-    };
-
-    var clearUserName = function() {
-      username = 'test';
-    };
-
-    return {
-      username : username,
-      updateUserName : updateUserName,
-      clearUserName : clearUserName
-    }
-  })
+  });

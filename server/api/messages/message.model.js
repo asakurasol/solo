@@ -5,8 +5,13 @@ var mongoose = require('mongoose'),
 
 var MessageSchema = new Schema({
   user: String,
-  content: String,
+  content: [Content],
   active: Boolean
 });
 
-module.exports = mongoose.model('Message', MessageSchema);
+var Content = new Schema({
+  message: String
+});
+
+module.exports.message = mongoose.model('Message', MessageSchema);
+module.exports.Content = mongoose.model('Content', Content);
