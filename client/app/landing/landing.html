@@ -1,0 +1,31 @@
+<form class="three fields" ng-submit="signup()">
+
+  <div class="required field">
+ 
+    <div class="ui icon input">
+      <input type="email" placeholder='Email' ng-model='user.email'>
+      <i class="lock icon"></i>
+    </div>
+  </div>
+
+  <div class="required field">
+    
+    <div class="ui icon input">
+      <input type="text" placeholder="Username" ng-model='user.username'>
+      <i class="user icon"></i>
+    </div>
+  </div>
+
+  <div class="required field">
+    
+    <div class="ui icon input">
+      <input type="password" placeholder='Password' ng-model='user.password'>
+      <i class="lock icon"></i>
+    </div>
+  </div>
+
+  <button class='ui button' ng-click="signup()">Sign Up</button>
+
+  <button class='ui button' ng-click="login()">Log In</button>
+
+</form>

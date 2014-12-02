@@ -6,10 +6,12 @@
 
 var errors = require('./components/errors');
 
-module.exports = function(app) {
+module.exports = function(app,passport) {
 
   // Insert routes below
   app.use('/api/messages', require('./api/messages'));
+
+  app.use('/api/users', require('./api/users')(passport));
   
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

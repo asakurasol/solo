@@ -8,7 +8,7 @@ angular.module('201410SoloApp', [
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/home');
 
     $locationProvider.html5Mode(true);
   });
