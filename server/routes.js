@@ -13,6 +13,8 @@ module.exports = function(app,passport) {
 
   app.use('/api/users', require('./api/users')(passport));
 
+  app.use('/api/letters', require('./api/letters'));
+
   app.route('/api/users/loggedin')
     .get(function(req, res) {
       res.sendfile(app.get('appPath') + '/index.html');

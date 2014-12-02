@@ -35,6 +35,10 @@ p::first-letter {
     color: gray;
 }
 
+.content p {
+    text-align: left;
+}
+
 .icons {
     float:right;
 }

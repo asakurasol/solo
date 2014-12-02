@@ -25,6 +25,11 @@ angular.module('201410SoloApp')
         //   }
         // }
       })
+      .state('letter', {
+        url: '/letter',
+        templateUrl: 'app/letter/letter.html',
+        controller: 'LetterCtrl'
+      })
       .state('landing', {
         url: '/home',
         templateUrl: 'app/landing/landing.html',

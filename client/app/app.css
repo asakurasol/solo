@@ -57,6 +57,18 @@ h1 {
     margin: auto;
 }
 
+.header{
+    text-align:center;
+}
+
 .letterMessage{
     padding: 20px !important;
+}
+
+.landing{
+    margin: 50px;
+}
+
+.landing .field {
+    margin: 6px;
 }
