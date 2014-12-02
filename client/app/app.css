@@ -32,3 +32,31 @@
         max-width: 730px;
     }
 }
+
+header {
+    text-align: center;
+}
+body{
+    width:90%;
+    margin: auto;
+}
+
+h1 {
+    color: #FF4719;
+    font-family: 'Pacifico', cursive;
+    margin: auto;
+    font-size: 3em;
+}
+
+.ui.menu.topMenu {
+    margin-bottom: 20px !important;
+}
+
+.content{
+    width:90%;
+    margin: auto;
+}
+
+.letterMessage{
+    padding: 20px !important;
+}

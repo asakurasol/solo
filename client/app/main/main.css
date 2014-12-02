@@ -28,3 +28,17 @@
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
+
+p::first-letter { 
+    font-size: 125%;
+    padding-right: 6px;
+    color: gray;
+}
+
+.icons {
+    float:right;
+}
+
+.message .divided {
+    margin-top: 10px;
+}

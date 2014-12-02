@@ -2,21 +2,29 @@
 
 angular.module('201410SoloApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+    $scope.messages = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+    $scope.fetchMessage = function() {  
+      $http.get('/api/messages').success(function(messages) {
+        $scope.messages = messages;
+        console.log(messages);
+      });
+    };
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
+    $scope.addMessage = function() {
+      if($scope.message === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      console.log($scope.message);
+      $http.post('/api/messages', { content: $scope.message });
+      $scope.message = '';
+      $scope.fetchMessage();
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteMessage = function(message) {
+      $http.delete('/api/messages/' + message._id);
+      $scope.fetchMessage();
     };
+
+    $scope.fetchMessage();
   });
