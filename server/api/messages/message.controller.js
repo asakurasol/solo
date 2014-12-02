@@ -10,7 +10,8 @@
 'use strict';
 
 var _ = require('lodash');
-var Message = require('./message.model');
+var Message = require('./message.model').message;
+var Content = require('./message.model').content;
 
 // Get list of messages
 exports.index = function(req, res) {
@@ -31,10 +32,51 @@ exports.show = function(req, res) {
 
 // Creates a new message in the DB.
 exports.create = function(req, res) {
-  Message.create(req.body, function(err, message) {
+  // Message.create(req.body, function(err, message) {
+  //   if(err) { return handleError(res, err); }
+  //   return res.json(201, message);
+  // });
+
+  Message.findOne(function (err, message) {
     if(err) { return handleError(res, err); }
-    return res.json(201, message);
+    console.log(message);
+    if(!message) {
+      Message.create({user: req.body.user}, function(err, message) {
+        Content.create({content:req.body.content[0]}, function(err, content) {
+          console.log(req.body);
+          console.log(message);
+          console.log(content);
+
+          message.content.push(content);
+          message.save(function(err) {
+            if (err) { return handleError(res, err); }
+              return res.json(200, message);
+          });
+        })
+      })
+    } else {
+      Content.create({content:req.body.content[0]}, function(err, content) {
+        console.log(req.body);
+        console.log(message);
+        console.log(content);
+
+        message.content.push(content);
+        message.save(function(err) {
+          if (err) { return handleError(res, err); }
+            return res.json(200, message);
+        });
+      })
+    }
+
+    // var updated = _.merge(message, req.body);
+    // updated.save(function (err) {
+    //   if (err) { return handleError(res, err); }
+    //   return res.json(200, message);
+    // });
+
+    // return res.json(200, messages);
   });
+
 };
 
 // Updates an existing message in the DB.

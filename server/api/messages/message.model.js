@@ -10,8 +10,8 @@ var MessageSchema = new Schema({
 });
 
 var Content = new Schema({
-  message: String
+  content: String
 });
 
 module.exports.message = mongoose.model('Message', MessageSchema);
-module.exports.Content = mongoose.model('Content', Content);
+module.exports.content = mongoose.model('Content', Content);

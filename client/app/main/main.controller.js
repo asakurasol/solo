@@ -7,8 +7,9 @@ angular.module('201410SoloApp')
     $scope.messages = [];
     console.log('angular usename is',$scope.username);
     $scope.fetchMessage = function() {  
-      $http.get('/api/messages').success(function(messages) {
-        $scope.messages = messages;
+      $http.get('/api/messages').success(function(data) {
+        console.log(data);
+        $scope.messages = data[0].content;
       });
     };
 
@@ -17,7 +18,7 @@ angular.module('201410SoloApp')
         return;
       }
       console.log($scope.message);
-      $http.post('/api/messages', { content: $scope.message });
+      $http.post('/api/messages', { user: Username.username, content: [$scope.message] });
       $scope.message = '';
       $scope.fetchMessage();
     };
