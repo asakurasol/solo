@@ -6,10 +6,12 @@ angular.module('201410SoloApp')
     console.log(Username);
     $scope.messages = [];
     console.log('angular usename is',$scope.username);
+
     $scope.fetchMessage = function() {  
-      $http.get('/api/messages').success(function(data) {
+      $http.get('/api/messages/'+Username.username)
+        .success(function(data) {
         console.log(data);
-        $scope.messages = data[0].content;
+        $scope.messages = data.content;
       });
     };
 
@@ -24,7 +26,7 @@ angular.module('201410SoloApp')
     };
 
     $scope.deleteMessage = function(message) {
-      $http.delete('/api/messages/' + message._id);
+      $http.delete('/api/messages/' + Username.username);
       $scope.fetchMessage();
     };
 
