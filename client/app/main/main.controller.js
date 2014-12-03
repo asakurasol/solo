@@ -21,7 +21,7 @@ angular.module('201410SoloApp')
 
           $timeout(function() {
             $scope.messages.push(msg);
-          }, idx * 250)
+          }, idx * 300)
         });
       });
     };
@@ -32,7 +32,7 @@ angular.module('201410SoloApp')
       }
       $http.post('/api/messages', { user: Username.username, content: [$scope.message] })
       .success(function() {
-        $scope.messages.unshift({content: $scope.message});
+        $scope.messages.push({content: $scope.message});
         $scope.message = 'I love that you ';
       });
     };
