@@ -37,7 +37,6 @@ header {
     text-align: center;
 }
 body{
-    width:90%;
     margin: auto;
 }
 
@@ -53,8 +52,8 @@ h1 {
 }
 
 .content{
-    width:90%;
-    margin: auto;
+    width:80% !important;
+    margin: auto !important;
 }
 
 .header{
@@ -71,4 +70,8 @@ h1 {
 
 .landing .field {
     margin: 6px;
+}
+
+.showLetter {
+    margin: 50px;
 }

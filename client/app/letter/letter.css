@@ -1,0 +1,25 @@
+.showLetter {
+	margin: 0px;
+	padding: 0px;
+	width:100%;
+	height:1000px;
+	background-image: url(../../assets/images/logo_x_pattern.png);
+	background-repeat: repeat;
+}
+
+.letterContainer {
+	padding-top: 50px;
+}
+
+p::first-letter { 
+    font-size: 110%;
+    padding-right: 1px;
+}
+
+.letterContainer p{
+	color: black;
+}
+
+.letterContainer .ui.message{
+	opacity:0.8;
+}

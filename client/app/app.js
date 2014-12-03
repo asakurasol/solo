@@ -5,7 +5,8 @@ angular.module('201410SoloApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'services'
+  'services',
+  'ngFx'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

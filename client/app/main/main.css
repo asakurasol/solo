@@ -32,11 +32,14 @@
 p::first-letter { 
     font-size: 125%;
     padding-right: 6px;
-    color: gray;
 }
 
 .content p {
     text-align: left;
+}
+
+.content input{
+    margin:5px !important;
 }
 
 .icons {
